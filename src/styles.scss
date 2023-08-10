@@ -54,15 +54,15 @@ body {
     color:var(--body-color);
 }
 
-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -20;
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-}
+// canvas {
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     z-index: -20;
+//     height: 100vh;
+//     width: 100vw;
+//     display: flex;
+// }
 
 button{
     font-family: 'Jura', sans-serif;
@@ -111,15 +111,15 @@ button:hover{
 
 }
 
-.overlay {
-    position: fixed;
-    z-index: -10;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    // background: url(https://robertsspaceindustries.com/rsi/static/images/gridbg_glow.png), radial-gradient(circle, rgba(2,0,36,0.5) 0%, rgba(2,0,36,0.5) 50%, rgba(2,0,36,0.2) 91%);
-}
+// .overlay {
+//     position: fixed;
+//     z-index: -10;
+//     top: 0;
+//     left: 0;
+//     height: 100%;
+//     width: 100%;
+//     // background: url(https://robertsspaceindustries.com/rsi/static/images/gridbg_glow.png), radial-gradient(circle, rgba(2,0,36,0.5) 0%, rgba(2,0,36,0.5) 50%, rgba(2,0,36,0.2) 91%);
+// }
 
 
 // html, body { height: 100%; }

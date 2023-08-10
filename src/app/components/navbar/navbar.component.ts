@@ -72,35 +72,7 @@ export class NavbarComponent implements OnInit {
   constructor(private router: Router, public navbarService: NavbarService, private planetService: PlanetService) {
     setInterval(() => {
       this.currentTime = new Date();
-      this.spaceSecond = this.currentTime.getSeconds();
-      // this.spaceHour = this.currentTime.getHours() + 10;
-      this.spaceMinute = this.currentTime.getMinutes();
-
-      // if ((this.spaceSecond = 60)) {
-      //   this.spaceMinute = this.spaceMinute + 1;
-      // }
-
-      // if ((this.spaceMinute == 60)) {
-      //   this.spaceHour = this.spaceHour + 1;
-      //   this.spaceMinute = 0;
-      // }
-
-      if (this.spaceHour == 42) {
-        this.spaceHour = 0;
-      }
-
-      if (this.spaceMinute == 59 && this.spaceSecond == 59) {
-        this.spaceHour = this.spaceHour + 1;
-      }
-
-      // this.spaceSecond = this.spaceSecond + 1;
     }, 1);
-  }
-
-  getSpaceHours() {
-    const d = new Date();
-    let hour = d.getHours();
-    return hour;
   }
 
   toMessages() {
@@ -150,25 +122,11 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.token = localStorage.getItem('x-token') ?? '';
     this.checkQuantityRessource(this.token);
-    // this.checkPlanetInfo(this.token);
     let ressources: Ressources = JSON.parse(localStorage.getItem('ressources') ?? '');
-    // let planets: Planets = JSON.parse(localStorage.getItem('planets') ?? '');
     this.iron = ressources.data.iron.quantity;
     this.diamond = ressources.data.diamond.quantity;
-    //+(localStorage.getItem('ressources').diamond.quantity ?? 0);
     this.hydrogene = ressources.data.hydrogene.quantity;
     this.energy = ressources.data.energy.quantity;
-    // this.planetService.planetName = planets.data[planetName].name;
     this.planetName = this.planetService.planetName;
-
-    // this.planet2 = planets.data.planet2.name;
-    // this.planet3 = planets.data.planet3.name;
-    // this.planet4 = planets.data.planet4.name;
-    // this.planet5 = planets.data.planet5.name;
-    // this.planet6 = planets.data.planet6.name;
-    // this.planet7 = planets.data.planet7.name;
-    // this.planet8 = planets.data.planet8.name;
-    // this.planet9 = planets.data.planet9.name;
-    // this.planet10 = planets.data.planet10.name;
   }
 }

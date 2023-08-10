@@ -1,26 +1,5 @@
 import { Injectable } from '@angular/core';
 
-export interface Planets {
-  data: {
-    planet1: Planets;
-    planet2: Planets;
-    planet3: Planets;
-    planet4: Planets;
-    planet5: Planets;
-    planet6: Planets;
-    planet7: Planets;
-    planet8: Planets;
-    planet9: Planets;
-    planet10: Planets;
-  };
-}
-
-export interface Planet {
-  name: string;
-  positionX: number;
-  positionY: number;
-}
-
 @Injectable({
   providedIn: 'root',
 })
@@ -45,14 +24,14 @@ export class PlanetService {
     { id: 10, name: 'Elysium', positionX: 2, positionY: 6 },
   ];
 
-  checkPlanetInfo(token: string) {
-    return fetch('http://localhost:8080/planet', {
-      method: 'GET',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        'x-token': token,
-      },
-    });
-  }
+  // checkPlanetInfo(token: string) {
+  //   return fetch('http://localhost:8080/planet', {
+  //     method: 'GET',
+  //     headers: {
+  //       Accept: 'application/json',
+  //       'Content-Type': 'application/json',
+  //       'x-token': token,
+  //     },
+  //   });
+  // }
 }

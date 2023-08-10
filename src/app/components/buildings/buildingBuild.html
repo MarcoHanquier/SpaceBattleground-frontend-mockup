@@ -27,10 +27,9 @@
 
     <mat-dialog-actions class="popupButtons">
 
-        <button *ngIf="this.buildingIsBuild == true" mat-dialog-close (click)="upgradeBuilding()">Améliorer</button>
-        <button *ngIf="this.buildingIsBuild == false" mat-dialog-close
-            (click)="buildBuilding(token, buildingName, buildingLevel, buildingIronPrice, buildingDiamondPrice, buildingEnergyPrice, buildingHydrogenePrice, buildingIsBuild, ironPlayer, diamondPlayer, hydrogenePlayer, energyPlayer)">Construire
-            {{buildingName}}</button>
+        <button *ngIf="this.buildingLevel > 0 && this.buildingLevel < 6 " mat-dialog-close (click)="buildBuilding()">Améliorer</button>
+        <button *ngIf="this.buildingLevel == 0" mat-dialog-close
+            (click)="buildBuilding()">Construire</button>
     </mat-dialog-actions>
 
 </div>

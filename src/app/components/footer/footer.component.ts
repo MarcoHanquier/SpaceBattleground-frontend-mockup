@@ -117,7 +117,9 @@ export class FooterComponent {
   }
 
   toResearch() {
-    if (this.buildService.laboratoryLevel == 0) {
+    if (this.buildService.buildingList[1].level == 0) {
+      this.buildService.eMessage = 'laboratory';
+      this.openErrorMessage();
     } else this.router.navigate(['/', 'research']);
   }
 
@@ -129,7 +131,7 @@ export class FooterComponent {
   toShipyard() {
     console.log(this.buildService.shipyardLevel);
 
-    if (this.buildService.shipyardLevel == 0) {
+    if (this.buildService.buildingList[2].level == 0) {
       this.buildService.eMessage = 'shipyard';
       this.openErrorMessage();
     } else this.router.navigate(['/', 'shipyard']);
