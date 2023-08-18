@@ -104,21 +104,7 @@ export class ResearchComponent implements OnInit {
   }
 
   openResearchDetail(researchName: string) {
-    let researchs: Researchs = JSON.parse(localStorage.getItem('researchs') ?? '');
-    console.log('pouet', researchs.data[researchName].name.toString());
 
-    this.researchService.researchName = researchs.data[researchName].name.toString();
-    this.researchService.researchDescription = researchs.data[researchName].description.toString();
-    this.researchService.researchLevel = researchs.data[researchName].level;
-
-    this.researchService.researchIronPrice = researchs.data[researchName].ironPrice;
-    this.researchService.researchDiamondPrice = researchs.data[researchName].diamondPrice;
-    this.researchService.researchHydrogenPrice = researchs.data[researchName].hydrogenPrice;
-    this.researchService.researchEnergyPrice = researchs.data[researchName].energyPrice;
-
-    this.researchService.researchNameSrc = researchName;
-    this.researchService.researchIsDone = researchs.data[researchName].isDone;
-    console.log(this.ferLevel);
     const dialogRef = this.dialog.open(researchDetail);
     dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result: ${result}`);
@@ -245,9 +231,6 @@ export class researchDetail implements OnInit {
     // }
   }
   ngOnInit(): void {
-    this.token = localStorage.getItem('x-token') ?? '';
-    this.getResearchInfo(this.token);
-    let researchs: Researchs = JSON.parse(localStorage.getItem('researchs') ?? '');
     this.researchName = this.researchService.researchName.toString();
     this.researchNameSrc = this.researchService.researchNameSrc;
     this.researchLevel = this.researchService.researchLevel;

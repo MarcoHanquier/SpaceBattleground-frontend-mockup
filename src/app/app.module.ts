@@ -1,4 +1,4 @@
-import { CretatedAlliancesComponent } from './components/cretated-alliances/cretated-alliances.component';
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -35,10 +35,8 @@ import { AdminComponent } from './components/admin/admin.component';
 import { DefenseComponent } from './components/defense/defense.component';
 import { MapComponent } from './components/map/map.component';
 import { MenubuttonComponent } from './components/menubutton/menubutton.component';
-import { PlayerComponent } from './components/player/player.component';
 import { MessageComponent } from './components/message/message.component';
-import { PopupComponent } from './components/popup/popup.component';
-import { HomeComponent } from './components/home/home.component';
+import { HomeComponent, about } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -64,9 +62,7 @@ import { AnimateBackgroundComponent } from './components/animate-background/anim
     DefenseComponent,
     MapComponent,
     MenubuttonComponent,
-    PlayerComponent,
     MessageComponent,
-    PopupComponent,
     HomeComponent,
     NavbarComponent,
     FooterComponent,
@@ -81,8 +77,8 @@ import { AnimateBackgroundComponent } from './components/animate-background/anim
     buildingDestroy,
     AnimateBackgroundComponent,
     shipBuild,
-    CretatedAlliancesComponent,
     errorMessage,
+    about
   ],
   imports: [
     BrowserModule,

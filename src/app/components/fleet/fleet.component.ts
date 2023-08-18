@@ -148,18 +148,14 @@ export class FleetComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.token = localStorage.getItem('x-token') ?? '';
-    this.getShipInfo(this.token);
-    let ships: Ships = JSON.parse(localStorage.getItem('ships') ?? '');
-
-    this.lightShipQuantity = ships.data.lightShip.quantity;
-    this.mediumShipQuantity = ships.data.mediumShip.quantity;
-    this.heavyShipQuantity = ships.data.heavyShip.quantity;
-    this.scoutShipQuantity = ships.data.scoutShip.quantity;
-    this.cargoShipQuantity = ships.data.cargoShip.quantity;
-    this.heavyCargoShipQuantity = ships.data.heavyCargoShip.quantity;
-    this.recyclerShipQuantity = ships.data.recyclerShip.quantity;
-    this.colonisateurQuantity = ships.data.colonisateur.quantity;
+    this.lightShipQuantity = 0;
+    this.mediumShipQuantity = 0;
+    this.heavyShipQuantity = 0;
+    this.scoutShipQuantity = 0;
+    this.cargoShipQuantity = 0;
+    this.heavyCargoShipQuantity = 0;
+    this.recyclerShipQuantity = 0;
+    this.colonisateurQuantity = 0;
   }
 }
 

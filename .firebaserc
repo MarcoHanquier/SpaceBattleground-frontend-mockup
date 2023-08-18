@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "wildspace-front": {
+      "hosting": {
+        "angular-template": [
+          "wildspace-front"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "wildspace-front"
+  }
+}

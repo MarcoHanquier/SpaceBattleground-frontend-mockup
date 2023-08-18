@@ -47,26 +47,17 @@ export class BuildingsComponent implements OnInit {
     });
   }
 
-  robotFactoryLevelInUI() {
-    return this.buildService.buildingList[0].level;
-  }
-  laboratoryLevelInUI() {
-    return this.buildService.buildingList[1].level;
-  }
 
-  shipyardLevelInUI() {
-    return this.buildService.buildingList[2].level;
-  }
 
-  terraformerLevelInUI() {
-    return this.buildService.buildingList[3].level;
+  levelInUI(level : number) {
+    return this.buildService.buildingList[level].level;
   }
 
   ngOnInit(): void {
-    this.buildService.robotFactoryLevel = 0;
-    this.buildService.laboratoryLevel = 0;
-    this.buildService.shipyardLevel = 0;
-    this.buildService.terraformerLevel = 0;
+    this.buildService.robotFactoryLevel = this.buildService.buildingList[0].level;
+    this.buildService.laboratoryLevel = this.buildService.buildingList[1].level;
+    this.buildService.shipyardLevel = this.buildService.buildingList[2].level;
+    this.buildService.terraformerLevel = this.buildService.buildingList[3].level;
   }
 }
 
@@ -165,7 +156,6 @@ export class buildingBuild implements OnInit {
     //     this.openErrorMessage();
     this.buildService.buildingList[this.buildService.buildingID].level =
       this.buildService.buildingList[this.buildService.buildingID].level + 1;
-    console.log(this.buildService.buildingList[this.buildService.buildingID].level);
   }
 
   ngOnInit() {

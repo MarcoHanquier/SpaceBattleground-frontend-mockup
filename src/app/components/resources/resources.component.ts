@@ -65,20 +65,18 @@ export class ResourcesComponent implements OnInit {
   public diamondStockageLevel!: number;
   public drillingMachineLevel!: number;
 
-  openBuildingDetail(buildingName: string) {
-    let buildings: Buildings = JSON.parse(localStorage.getItem('buildings') ?? '');
-    this.buildService.buildingName = buildings.data[buildingName].name.toString();
-    this.buildService.buildingType = buildings.data[buildingName].type.toString();
-    this.buildService.buildingLevel = buildings.data[buildingName].level;
-    this.buildService.buildingDescription = buildings.data[buildingName].description.toString();
-    this.buildService.buildingIronPrice = buildings.data[buildingName].ironPrice;
-    this.buildService.buildingDiamondPrice = buildings.data[buildingName].diamondPrice;
-    this.buildService.buildingHydrogenPrice = buildings.data[buildingName].hydrogenPrice;
-    this.buildService.buildingEnergyPrice = buildings.data[buildingName].energyPrice;
-    this.buildService.buildingNameSrc = buildingName;
-    this.buildService.buildingIsBuild = buildings.data[buildingName].isBuild;
 
-    // this.buildService.buildingCapacity = buildings.data[buildingName].capacity;
+
+  openBuildingDetail(buildingID: number) {
+    this.buildService.buildingName = this.buildService.buildingList[buildingID].name;
+    this.buildService.buildingNameSrc = this.buildService.buildingList[buildingID].nameSrc;
+    this.buildService.buildingType = this.buildService.buildingList[buildingID].type;
+    this.buildService.buildingDescription = this.buildService.buildingList[buildingID].description;
+    this.buildService.buildingLevel = this.buildService.buildingList[buildingID].level;
+    this.buildService.buildingIronPrice = this.buildService.buildingList[buildingID].ironPrice;
+    this.buildService.buildingDiamondPrice = this.buildService.buildingList[buildingID].diamondPrice;
+    this.buildService.buildingHydrogenPrice = this.buildService.buildingList[buildingID].hydrogenPrice;
+    this.buildService.buildingID = buildingID;
 
     const dialogRef = this.dialog.open(buildingDetail);
     dialogRef.afterClosed().subscribe((result) => {
@@ -97,18 +95,19 @@ export class ResourcesComponent implements OnInit {
     });
   }
 
+  levelInUI(level : number) {
+    return this.buildService.buildingList[level].level;
+  }
+
   ngOnInit(): void {
-    this.token = localStorage.getItem('x-token') ?? '';
-    this.checkBuildingInfo(this.token);
-    let buildings: Buildings = JSON.parse(localStorage.getItem('buildings') ?? '');
-    this.ironMineLevel = buildings.data.ironMine.level;
-    this.hydrogenMineLevel = buildings.data.hydrogenMine.level;
-    this.diamondMineLevel = buildings.data.diamondMine.level;
-    this.energyMineLevel = buildings.data.energyMine.level;
-    this.ironStockageLevel = buildings.data.ironStockage.level;
-    this.hydrogenStockageLevel = buildings.data.hydrogenStockage.level;
-    this.diamondStockageLevel = buildings.data.diamondStockage.level;
-    this.drillingMachineLevel = buildings.data.drillingMachine.level;
+    this.buildService.ironMineLevel = this.buildService.buildingList[4].level;
+    this.buildService.hydrogenMineLevel = this.buildService.buildingList[5].level;
+    this.buildService.diamondMineLevel = this.buildService.buildingList[6].level;
+    this.buildService.energyMineLevel = this.buildService.buildingList[7].level;
+    this.buildService.ironStockageLevel = this.buildService.buildingList[8].level;
+    this.buildService.hydrogenStockageLevel = this.buildService.buildingList[9].level;
+    this.buildService.diamondStockageLevel = this.buildService.buildingList[10].level;
+    this.buildService.drillingMachineLevel = this.buildService.buildingList[11].level;
   }
 }
 @Component({

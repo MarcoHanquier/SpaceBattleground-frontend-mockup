@@ -81,32 +81,34 @@ export class ShipyardComponent implements OnInit {
 
   constructor(public dialog: MatDialog, public shipService: ShipService) {}
 
-  openShipDetail(shipName: string) {
-    console.log(shipName);
-    let ships: Ships = JSON.parse(localStorage.getItem('ships') ?? '');
-    this.shipService.shipName = ships.data[shipName].name.toString();
-    this.shipService.shipType = ships.data[shipName].type.toString();
+  openShipDetail(shipID: number) {
+    this.shipService.shipName = this.shipService.shipList[shipID].name;
+    this.shipService.shipType = this.shipService.shipList[shipID].type;
 
-    this.shipService.shipPv = ships.data[shipName].pv;
-    this.shipService.shipDamage = ships.data[shipName].damage;
-    this.shipService.shipSpeed = ships.data[shipName].speed;
-    this.shipService.shipQuantity = ships.data[shipName].quantity;
-    this.shipService.shipCapacity = ships.data[shipName].capacity;
-    this.shipService.shipFuel = ships.data[shipName].fuel;
+    this.shipService.shipPv = this.shipService.shipList[shipID].pv;
+    this.shipService.shipDamage = this.shipService.shipList[shipID].damage;
+    this.shipService.shipSpeed = this.shipService.shipList[shipID].speed;
+    this.shipService.shipQuantity = this.shipService.shipList[shipID].quantity;
+    this.shipService.shipCapacity = this.shipService.shipList[shipID].capacity;
 
-    this.shipService.shipIronPrice = ships.data[shipName].ironPrice;
-    this.shipService.shipDiamondPrice = ships.data[shipName].diamondPrice;
-    this.shipService.shipHydrogenPrice = ships.data[shipName].hydrogenPrice;
-    this.shipService.shipEnergyPrice = ships.data[shipName].energyPrice;
+    this.shipService.shipIronPrice = this.shipService.shipList[shipID].ironPrice;
+    this.shipService.shipDiamondPrice = this.shipService.shipList[shipID].diamondPrice;
+    this.shipService.shipHydrogenPrice = this.shipService.shipList[shipID].hydrogenPrice;
 
-    this.shipService.shipNameSrc = shipName;
+    this.shipService.shipNameSrc = this.shipService.shipList[shipID].nameSrc;
+    this.shipService.shipID = shipID;
 
-    console.log();
 
     const dialogRef = this.dialog.open(shipDetail);
     dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result: ${result}`);
     });
+  }
+
+
+
+  quantityInUI(quantity : number) {
+    return this.shipService.shipList[quantity].quantity;
   }
 
   getShipInfo(token: string) {
@@ -121,18 +123,14 @@ export class ShipyardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.token = localStorage.getItem('x-token') ?? '';
-    this.getShipInfo(this.token);
-    let ships: Ships = JSON.parse(localStorage.getItem('ships') ?? '');
-
-    this.lightShipQuantity = ships.data.lightShip.quantity;
-    this.mediumShipQuantity = ships.data.mediumShip.quantity;
-    this.heavyShipQuantity = ships.data.heavyShip.quantity;
-    this.scoutShipQuantity = ships.data.scoutShip.quantity;
-    this.cargoShipQuantity = ships.data.cargoShip.quantity;
-    this.heavyCargoShipQuantity = ships.data.heavyCargoShip.quantity;
-    this.recyclerShipQuantity = ships.data.recyclerShip.quantity;
-    this.colonisateurQuantity = ships.data.colonisateur.quantity;
+    this.shipService.lightShipQuantity = this.shipService.shipList[0].quantity;
+    this.shipService.mediumShipQuantity = this.shipService.shipList[1].quantity;
+    this.shipService.heavyShipQuantity = this.shipService.shipList[2].quantity;
+    this.shipService.scoutShipQuantity = this.shipService.shipList[3].quantity;
+    this.shipService.cargoShipQuantity = this.shipService.shipList[4].quantity;
+    this.shipService.heavyCargoShipQuantity = this.shipService.shipList[5].quantity;
+    this.shipService.recyclerShipQuantity = this.shipService.shipList[6].quantity;
+    this.shipService.colonisateurQuantity = this.shipService.shipList[7].quantity;
   }
 }
 
@@ -172,11 +170,11 @@ export class shipDetail {
   public recyclerShipQuantity!: number;
   public colonisateurQuantity!: number;
 
-  openShipBuild() {
-    const dialogRef = this.dialog.open(shipBuild);
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log(`Dialog result: ${result}`);
-    });
+
+  buildShip() {
+
+    this.shipService.shipList[this.shipService.shipID].quantity =
+      this.shipService.shipList[this.shipService.shipID].quantity + 1;
   }
 
   getShipInfo(token: string) {
@@ -191,21 +189,9 @@ export class shipDetail {
   }
 
   ngOnInit(): void {
-    this.token = localStorage.getItem('x-token') ?? '';
-    this.getShipInfo(this.token);
-    let ships: Ships = JSON.parse(localStorage.getItem('ships') ?? '');
 
-    this.lightShipQuantity = ships.data.lightShip.quantity;
-    this.mediumShipQuantity = ships.data.mediumShip.quantity;
-    this.heavyShipQuantity = ships.data.heavyShip.quantity;
-    this.scoutShipQuantity = ships.data.scoutShip.quantity;
-    this.cargoShipQuantity = ships.data.cargoShip.quantity;
-    this.heavyCargoShipQuantity = ships.data.heavyCargoShip.quantity;
-    this.recyclerShipQuantity = ships.data.recyclerShip.quantity;
-    this.colonisateurQuantity = ships.data.colonisateur.quantity;
-
-    this.shipName = this.shipService.shipName.toString();
-    this.shipType = this.shipService.shipType.toString();
+    this.shipName = this.shipService.shipName;
+    this.shipType = this.shipService.shipType;
     this.shipPv = this.shipService.shipPv;
     this.shipCapacity = this.shipService.shipCapacity;
     this.shipQuantity = this.shipService.shipQuantity;

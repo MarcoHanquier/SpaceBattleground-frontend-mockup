@@ -48,6 +48,14 @@ export class BuildService {
   public laboratoryLevel!: number;
   public shipyardLevel!: number;
   public terraformerLevel!: number;
+  public ironMineLevel!: number;
+  public hydrogenMineLevel!: number;
+  public diamondMineLevel!: number;
+  public energyMineLevel!: number;
+  public ironStockageLevel!: number;
+  public hydrogenStockageLevel!: number;
+  public diamondStockageLevel!: number;
+  public drillingMachineLevel!: number;
   public eMessage = '';
 
   public buildingList = [
@@ -106,7 +114,7 @@ export class BuildService {
       ironPrice: 200,
       hydrogenPrice: 200,
       diamondPrice: 200,
-      nameSrc: 'robotFactory',
+      nameSrc: 'ironMine',
     },
     {
       id: 5,
@@ -117,7 +125,7 @@ export class BuildService {
       ironPrice: 200,
       hydrogenPrice: 200,
       diamondPrice: 200,
-      nameSrc: 'robotFactory',
+      nameSrc: 'hydrogenMine',
     },
     {
       id: 6,
@@ -128,7 +136,7 @@ export class BuildService {
       ironPrice: 200,
       hydrogenPrice: 200,
       diamondPrice: 200,
-      nameSrc: 'robotFactory',
+      nameSrc: 'diamondMine',
     },
     {
       id: 7,
@@ -139,7 +147,7 @@ export class BuildService {
       ironPrice: 200,
       hydrogenPrice: 200,
       diamondPrice: 200,
-      nameSrc: 'robotFactory',
+      nameSrc: 'energyMine',
     },
 
     {
@@ -151,7 +159,7 @@ export class BuildService {
       ironPrice: 200,
       hydrogenPrice: 200,
       diamondPrice: 200,
-      nameSrc: 'robotFactory',
+      nameSrc: 'ironStockage',
     },
     {
       id: 9,
@@ -162,7 +170,7 @@ export class BuildService {
       ironPrice: 200,
       hydrogenPrice: 200,
       diamondPrice: 200,
-      nameSrc: 'robotFactory',
+      nameSrc: 'hydrogenStockage',
     },
     {
       id: 10,
@@ -173,7 +181,7 @@ export class BuildService {
       ironPrice: 200,
       hydrogenPrice: 200,
       diamondPrice: 200,
-      nameSrc: 'robotFactory',
+      nameSrc: 'diamondStockage',
     },
     {
       id: 11,
@@ -184,7 +192,7 @@ export class BuildService {
       ironPrice: 200,
       hydrogenPrice: 200,
       diamondPrice: 200,
-      nameSrc: 'robotFactory',
+      nameSrc: 'drillingMachine',
     },
   ];
 
