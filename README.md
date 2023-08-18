@@ -6,7 +6,9 @@ Bienvenue dans notre projet spatial de fin de formation, inspiré par Ogame. Vou
 /!\ Ceci est uniquement la partie Front End qui représente le travail que j'ai effectué sur ce projet, modifié afin d'avoir un aperçu fonctionnel simple d'accès.  
 Vous pouvez retrouver le reste du projet ici :  
 - La partie Back : https://github.com/Vv214/SpaceBattleground-POEC-0523/tree/postPres  
-- La partie Front : https://github.com/Vv214/SpaceBattleground-POEC-0523-frontend/tree/VvDev  
+- La partie Front : https://github.com/Vv214/SpaceBattleground-POEC-0523-frontend/tree/VvDev
+
+Lien vers le site : https://wildspace-front.web.app/
 
 ## Comment installer : 
 
